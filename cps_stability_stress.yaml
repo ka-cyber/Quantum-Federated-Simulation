@@ -1,0 +1,11 @@
+base_config: base_config.yaml
+description: High-stress CPS control with ML model uncertainty
+name: cps_stability_stress
+overrides:
+  cps.max_velocity: 15.0
+  cps.num_drones: 10
+  cps.safety_margin: 0.85
+  federated_learning.byzantine_ratio: 0.35
+  federated_learning.local_epochs: 10
+  network.base_latency_ms: 30
+  security.attack_intensity: 0.6

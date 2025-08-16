@@ -1,0 +1,49 @@
+attack_models:
+- ratio: 0.1
+  type: label_flip
+- ratio: 0.3
+  type: label_flip
+- ratio: 0.2
+  type: gradient_sign_flip
+- trigger_rate: 0.05
+  type: backdoor
+datasets:
+- alpha: 1000
+  name: cifar10_iid
+- alpha: 0.1
+  name: cifar10_noniid
+- alpha: 0.3
+  name: cifar10_noniid
+- alpha: 1.0
+  name: cifar10_noniid
+description: Comprehensive benchmark suite for quantum-federated systems
+evaluation_metrics:
+- global_accuracy
+- fairness_gini
+- key_generation_rate
+- secure_key_rate
+- safety_violation_rate
+- end_to_end_latency
+- energy_consumption
+- privacy_epsilon
+name: benchmark_v1
+qkd_regimes:
+- distance_km: 5
+  name: metro
+- distance_km: 25
+  name: metro_long
+- distance_km: 50
+  name: regional
+- distance_km: 100
+  name: long_haul
+scenarios:
+- byzantine_highloss.yaml
+- qkd_burst_noise.yaml
+- cps_stability_stress.yaml
+- secure_agg_performance.yaml
+topologies:
+- line
+- mesh
+- fat_tree
+- small_world
+version: 1.0.0

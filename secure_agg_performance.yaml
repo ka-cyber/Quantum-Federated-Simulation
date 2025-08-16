@@ -1,0 +1,10 @@
+base_config: base_config.yaml
+description: Performance comparison with/without secure aggregation
+name: secure_agg_performance
+overrides:
+  federated_learning.differential_privacy.enabled: true
+  federated_learning.differential_privacy.epsilon: 1.0
+  federated_learning.secure_aggregation: true
+  network.rlnc.enabled: true
+  quantum.finite_key_analysis: true
+  quantum.protocol: bb84_decoy

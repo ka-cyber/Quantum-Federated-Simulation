@@ -1,0 +1,10 @@
+base_config: base_config.yaml
+description: Quantum channel with burst noise patterns
+name: qkd_burst_noise
+overrides:
+  federated_learning.participation_rate: 0.6
+  network.packet_loss_rate: 0.05
+  quantum.channel_loss: 0.15
+  quantum.dark_count_rate: 500
+  quantum.detector_efficiency: 0.75
+  quantum.distance_km: 50
