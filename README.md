@@ -11,9 +11,3 @@ The project is not intended as a finished product but as a flexible environment 
 The overarching vision is to provide a space where quantum communication, distributed learning, and safety-critical systems can be examined together rather than in isolation. By offering a single point of experimentation, Quantum Federated Simulation aims to support research in trustworthy distributed intelligence at the intersection of security, resilience, and emerging computation.
 
 contact : knavaneeth385@gmail.com
-
-Large-scale federated learning scenarios across heterogeneous devices.
-
-Deployment-ready security modules.
-
-Cloud-native scaling with container orchestration.
