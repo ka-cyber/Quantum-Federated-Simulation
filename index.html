@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum-Enhanced Federated Edge Intelligence Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1>QFEI Simulation Platform</h1>
+            <div class="simulation-controls">
+                <button id="startBtn" class="btn btn--primary btn--sm">Start</button>
+                <button id="pauseBtn" class="btn btn--secondary btn--sm">Pause</button>
+                <button id="resetBtn" class="btn btn--outline btn--sm">Reset</button>
+            </div>
+        </div>
+        <div class="header-center">
+            <div class="system-status">
+                <span class="status-indicator active"></span>
+                <span>System Active</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="simulation-time">
+                <span id="simTime">00:02:15</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <main class="main-layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <nav class="nav">
+                <button class="nav-item active" data-panel="overview">
+                    <span class="nav-icon">📊</span>
+                    Overview
+                </button>
+                <button class="nav-item" data-panel="quantum">
+                    <span class="nav-icon">⚛️</span>
+                    Quantum Layer
+                </button>
+                <button class="nav-item" data-panel="federated">
+                    <span class="nav-icon">🤖</span>
+                    Federated Learning
+                </button>
+                <button class="nav-item" data-panel="cps">
+                    <span class="nav-icon">🚁</span>
+                    Cyber-Physical Systems
+                </button>
+                <button class="nav-item" data-panel="network">
+                    <span class="nav-icon">🌐</span>
+                    Network Performance
+                </button>
+                <button class="nav-item" data-panel="security">
+                    <span class="nav-icon">🛡️</span>
+                    Security Dashboard
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Central Content -->
+        <section class="content">
+            <!-- Overview Panel -->
+            <div id="overview-panel" class="panel active">
+                <div class="metric-cards">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Quantum Fidelity</h3>
+                            <span class="trend positive">+2.1%</span>
+                        </div>
+                        <div class="metric-value" id="quantumFidelityValue">0.95</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>FL Accuracy</h3>
+                            <span class="trend positive">+1.4%</span>
+                        </div>
+                        <div class="metric-value" id="flAccuracyValue">0.87</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" style="width: 87%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>CPS Safety</h3>
+                            <span class="trend positive">+0.1%</span>
+                        </div>
+                        <div class="metric-value" id="cpsSafetyValue">0.998</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" style="width: 99.8%"></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <h3>Network Reliability</h3>
+                            <span class="trend negative">-0.8%</span>
+                        </div>
+                        <div class="metric-value" id="networkReliabilityValue">0.942</div>
+                        <div class="metric-bar">
+                            <div class="metric-bar-fill" style="width: 94.2%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-container">
+                    <h3>System Performance Timeline</h3>
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="systemTimelineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantum Panel -->
+            <div id="quantum-panel" class="panel">
+                <div class="quantum-layout">
+                    <div class="quantum-left">
+                        <h3>Quantum Fidelity</h3>
+                        <div class="fidelity-gauge-container">
+                            <canvas id="fidelityGauge" width="200" height="200"></canvas>
+                        </div>
+                        <div class="quantum-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Keys Generated</span>
+                                <span class="stat-value" id="keysGenerated">1,247</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Key Rate</span>
+                                <span class="stat-value" id="keyRate">5,240 keys/sec</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Error Rate</span>
+                                <span class="stat-value" id="errorRate">2.0%</span>
+                            </div>
+                            <div class="qkd-status">
+                                <span class="status status--success">QKD Active</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quantum-right">
+                        <h3>Key Generation Performance</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="quantumChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Federated Learning Panel -->
+            <div id="federated-panel" class="panel">
+                <div class="fl-layout">
+                    <div class="fl-left">
+                        <h3>Client Network</h3>
+                        <canvas id="flNetworkViz" width="400" height="400"></canvas>
+                        <div class="fl-stats">
+                            <div class="stat-row">
+                                <span>Active Clients: <strong id="activeClients">37</strong></span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Byzantine Detected: <strong id="byzantineDetected">14</strong></span>
+                            </div>
+                            <div class="stat-row">
+                                <span>Trust Score: <strong id="trustScore">84%</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fl-right">
+                        <h3>Model Convergence</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="convergenceChart"></canvas>
+                        </div>
+                        <div class="round-indicator">
+                            <span>Round: <strong id="currentRound">23</strong>/100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CPS Panel -->
+            <div id="cps-panel" class="panel">
+                <div class="cps-layout">
+                    <div class="cps-left">
+                        <h3>Drone Fleet</h3>
+                        <canvas id="droneViz" width="400" height="300"></canvas>
+                        <div class="cps-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Lyapunov Value</span>
+                                <span class="stat-value" id="lyapunovValue">0.023</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Safety Margin</span>
+                                <span class="stat-value" id="safetyMargin">98.7%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Control Freq</span>
+                                <span class="stat-value" id="controlFreq">100 Hz</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cps-right">
+                        <h3>Control Signals</h3>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="controlChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Panel -->
+            <div id="network-panel" class="panel">
+                <div class="network-layout">
+                    <div class="network-left">
+                        <h3>Network Topology</h3>
+                        <canvas id="networkTopology" width="400" height="300"></canvas>
+                    </div>
+                    <div class="network-right">
+                        <div class="network-metrics">
+                            <div class="metric-box">
+                                <span class="metric-label">Avg Latency</span>
+                                <span class="metric-value" id="avgLatency">12.4ms</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-label">Throughput</span>
+                                <span class="metric-value" id="throughput">847 Mbps</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-label">Packet Loss</span>
+                                <span class="metric-value" id="packetLoss">0.12%</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-label">RLNC Efficiency</span>
+                                <span class="metric-value" id="rlncEfficiency">94.8%</span>
+                            </div>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 250px;">
+                            <canvas id="networkChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Panel -->
+            <div id="security-panel" class="panel">
+                <div class="security-layout">
+                    <div class="security-left">
+                        <h3>Threat Timeline</h3>
+                        <div class="threat-timeline" id="threatTimeline">
+                            <div class="threat-item">
+                                <span class="threat-time">00:02:15</span>
+                                <span class="threat-type">Byzantine client detected</span>
+                                <span class="threat-severity medium">Medium</span>
+                            </div>
+                            <div class="threat-item">
+                                <span class="threat-time">00:01:58</span>
+                                <span class="threat-type">Network intrusion attempt</span>
+                                <span class="threat-severity low">Low</span>
+                            </div>
+                            <div class="threat-item">
+                                <span class="threat-time">00:01:32</span>
+                                <span class="threat-type">Quantum channel interference</span>
+                                <span class="threat-severity low">Low</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="security-right">
+                        <div class="chart-container" style="position: relative; height: 250px;">
+                            <canvas id="threatChart"></canvas>
+                        </div>
+                        <div class="security-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Threats</span>
+                                <span class="stat-value" id="totalThreats">23</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">False Positives</span>
+                                <span class="stat-value" id="falsePositives">2</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Mitigation Rate</span>
+                                <span class="stat-value" id="mitigationRate">87.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <div class="sidebar-section">
+                <h3>System Alerts</h3>
+                <div class="alerts-list" id="alertsList">
+                    <div class="alert alert--warning">
+                        <span class="alert-time">00:02:15</span>
+                        <span class="alert-message">Byzantine client activity detected</span>
+                    </div>
+                    <div class="alert alert--info">
+                        <span class="alert-time">00:02:08</span>
+                        <span class="alert-message">Quantum key generation rate increased</span>
+                    </div>
+                    <div class="alert alert--error">
+                        <span class="alert-time">00:01:45</span>
+                        <span class="alert-message">Network packet loss spike detected</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Performance Monitor</h3>
+                <div class="performance-stats">
+                    <div class="perf-item">
+                        <span class="perf-label">FPS</span>
+                        <span class="perf-value" id="fpsValue">60</span>
+                    </div>
+                    <div class="perf-item">
+                        <span class="perf-label">CPU</span>
+                        <span class="perf-value" id="cpuValue">23%</span>
+                    </div>
+                    <div class="perf-item">
+                        <span class="perf-label">Memory</span>
+                        <span class="perf-value" id="memoryValue">1.2GB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Simulation Parameters</h3>
+                <div class="parameter-controls">
+                    <div class="param-control">
+                        <label for="attackIntensity">Attack Intensity</label>
+                        <input type="range" id="attackIntensity" min="0" max="100" value="30">
+                        <span class="param-value">30%</span>
+                    </div>
+                    <div class="param-control">
+                        <label for="networkNoise">Network Noise</label>
+                        <input type="range" id="networkNoise" min="0" max="100" value="15">
+                        <span class="param-value">15%</span>
+                    </div>
+                    <div class="param-control">
+                        <label for="clientParticipation">Client Participation</label>
+                        <input type="range" id="clientParticipation" min="0" max="100" value="75">
+                        <span class="param-value">75%</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Log Panel -->
+    <footer class="log-panel">
+        <div class="log-header">
+            <h3>System Events</h3>
+            <button class="btn btn--sm btn--outline" id="clearLogsBtn">Clear</button>
+        </div>
+        <div class="log-content" id="logContent">
+            <div class="log-entry">
+                <span class="log-time">[00:02:15]</span>
+                <span class="log-level info">INFO</span>
+                <span class="log-message">Federated Learning round 23 completed successfully</span>
+            </div>
+            <div class="log-entry">
+                <span class="log-time">[00:02:08]</span>
+                <span class="log-level warning">WARN</span>
+                <span class="log-message">Byzantine client detected in FL network</span>
+            </div>
+            <div class="log-entry">
+                <span class="log-time">[00:01:58]</span>
+                <span class="log-level info">INFO</span>
+                <span class="log-message">Quantum key generation rate: 5,240 keys/sec</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
