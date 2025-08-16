@@ -1,0 +1,8 @@
+dataset,num_records,file_size_kb,description
+bb84_performance,20,1.06640625,BB84 QKD performance vs distance
+network_topology,1225,58.7470703125,Network topology and link characteristics
+federated_clients,100,13.5078125,Federated learning client profiles
+drone_trajectories,30000,3310.67578125,Drone trajectory and safety data
+attack_patterns,18000,1466.14453125,Time-series attack pattern data
+mobility_traces,3600,200.51953125,Mobile device location traces
+quantum_channel_traces,144000,9000.12890625,Quantum channel environmental data
