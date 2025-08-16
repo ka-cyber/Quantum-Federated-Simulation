@@ -1,0 +1,77 @@
+cps:
+  communication_range: 100.0
+  control_frequency: 100
+  formation_control: true
+  lyapunov_threshold: 10.0
+  max_acceleration: 5.0
+  max_velocity: 10.0
+  num_drones: 5
+  obstacle_avoidance: true
+  safety_margin: 0.95
+federated_learning:
+  algorithm: fedavg
+  alpha: 0.3
+  batch_size: 32
+  byzantine_ratio: 0.3
+  dataset: cifar10_noniid
+  differential_privacy:
+    clip_norm: 1.0
+    delta: 1.0e-05
+    enabled: true
+    epsilon: 2.0
+  learning_rate: 0.01
+  local_epochs: 5
+  model_architecture: simple_cnn
+  num_clients: 50
+  participation_rate: 0.75
+  secure_aggregation: true
+logging:
+  console: true
+  file: true
+  level: INFO
+  metrics_interval: 1.0
+network:
+  bandwidth_mbps: 1000
+  base_latency_ms: 10
+  jitter_ms: 1.0
+  num_nodes: 50
+  packet_loss_rate: 0.01
+  rlnc:
+    enabled: true
+    field_size: 256
+    generation_size: 8
+    redundancy_factor: 1.2
+  topology: mesh
+quantum:
+  channel_loss: 0.05
+  dark_count_rate: 100
+  detector_efficiency: 0.9
+  distance_km: 25
+  error_correction: ldpc
+  finite_key_analysis: true
+  key_length: 256
+  photon_rate: 1000000.0
+  privacy_amplification: true
+  protocol: bb84_decoy
+  qber_threshold: 0.11
+security:
+  anomaly_threshold: 0.7
+  attack_intensity: 0.3
+  defense_mechanisms:
+  - krum
+  - trimmed_mean
+  - differential_privacy
+  monitoring_interval: 2.0
+  threat_types:
+  - byzantine
+  - poisoning
+  - evasion
+  - inference
+simulation:
+  description: Advanced Quantum-Enhanced Federated Edge Intelligence Platform
+  duration_seconds: 300.0
+  name: quantum_federated_simulation
+  output_dir: results/
+  seed: 42
+  timestep: 0.01
+  version: 2.0.0

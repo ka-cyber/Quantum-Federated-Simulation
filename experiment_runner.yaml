@@ -1,0 +1,25 @@
+monitoring:
+  checkpoint_interval: 60
+  enable_profiling: true
+  memory_threshold_gb: 8.0
+output:
+  artifact_retention_days: 30
+  base_dir: results
+  compress: true
+  format:
+  - json
+  - csv
+  - parquet
+parallelism:
+  max_workers: 4
+  timeout_seconds: 3600
+  use_multiprocessing: true
+reproducibility:
+  deterministic: true
+  record_environment: true
+  seeds:
+  - 42
+  - 123
+  - 456
+  - 789
+  - 999

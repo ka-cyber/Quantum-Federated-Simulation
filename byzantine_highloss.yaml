@@ -1,0 +1,11 @@
+base_config: base_config.yaml
+description: Byzantine attack with high network packet loss
+name: byzantine_highloss
+overrides:
+  federated_learning.algorithm: krum
+  federated_learning.byzantine_ratio: 0.4
+  network.base_latency_ms: 50
+  network.packet_loss_rate: 0.15
+  quantum.qber_threshold: 0.15
+  security.attack_intensity: 0.8
+  simulation.duration_seconds: 600.0
